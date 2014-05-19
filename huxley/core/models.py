@@ -75,7 +75,7 @@ class Conference(models.Model):
         return spots_left
 
     def __unicode__(self):
-        return 'BMUN %d' % self.session
+        return 'NUMUN %d' % self.session
 
     class Meta:
         db_table = u'conference'
@@ -107,13 +107,6 @@ class Committee(models.Model):
 
 
 class School(models.Model):
-    TYPE_CLUB = 1
-    TYPE_CLASS = 2
-    PROGRAM_TYPE_OPTIONS = (
-        (TYPE_CLUB, 'Club'),
-        (TYPE_CLASS, 'Class'),
-    )
-
     LOCATION_USA = 'location/usa'
     LOCATION_INTERNATIONAL = 'location/international'
     LOCATION_OPTIONS = (
@@ -134,8 +127,6 @@ class School(models.Model):
     secondary_name      = models.CharField(max_length=128, blank=True)
     secondary_email     = models.EmailField(blank=True)
     secondary_phone     = models.CharField(max_length=32, blank=True)
-    program_type        = models.PositiveSmallIntegerField(choices=PROGRAM_TYPE_OPTIONS)
-    times_attended      = models.PositiveSmallIntegerField(default=0)
     min_delegation_size = models.PositiveSmallIntegerField(default=0)
     max_delegation_size = models.PositiveSmallIntegerField(default=0)
     international       = models.BooleanField(default=False)
@@ -313,7 +304,6 @@ class Delegate(models.Model):
     email         = models.EmailField(blank=True)
     delegate_slot = models.OneToOneField(DelegateSlot, related_name='delegate', null=True, default=None)
     created_at    = models.DateTimeField(auto_now_add=True)
-    summary       = models.TextField(default='', null=True)
 
     def __unicode__(self):
         return self.name
@@ -332,6 +322,14 @@ class Delegate(models.Model):
 
     class Meta:
         db_table = u'delegate'
+
+class PressRelease(models.Model):
+	title			= models.CharField(max_length=100, blank=True)
+	committee		= models.ForeignKey(Committee)
+	release_body	= models.TextField()
+	
+	class Meta:
+		db_table = u'press_release'
 
 
 class HelpCategory(models.Model):

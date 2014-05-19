@@ -4,7 +4,7 @@
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns('huxley.chairs.views',
-    url(r'^summaries', 'summaries', name='summaries'),
+    url(r'^release', 'press_release', name='press_release'),
     url(r'^attendance', 'attendance', name='attendance'),
     url(r'^help', 'help', name='help'),
     url(r'^bugs', 'bugs', name='bugs'),

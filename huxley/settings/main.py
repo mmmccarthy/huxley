@@ -11,7 +11,7 @@ TEMPLATE_DEBUG = DEBUG
 # IMPORTANT: Override this in local settings!
 SECRET_KEY = '+42lz(cp=6t#dzpkah^chn760l)rmu$p&f-#7ggsde2l3%fm-i'
 
-ADMINS = (('BMUN Tech Officer', 'tech@bmun.org'))
+ADMINS = (('NUMUN Tech Director', 'mmccarthy@u.northwestern.edu'))
 ADMIN_SECRET = 'OVERRIDE THIS IN PRODUCTION'
 MANAGERS = ADMINS
 
@@ -30,7 +30,7 @@ DATABASES = {
 
 ROOT_URLCONF = 'huxley.urls'
 
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
 USE_I18N = False
 USE_L10N = False

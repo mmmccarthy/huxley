@@ -1,0 +1,41 @@
+{%extends 'base-inner.html' %}
+
+{% block title %} Press Release {% endblock title %}
+
+{% block content %}
+
+<h2>Press Release</h2>
+
+<p>Delegates may unilaterally submit Press Releases to the Press Corps and Crisis Staffers. Select the sponsoring delegate and type the release below.<br /> Submitting press releases helps Press Corps cover your committee. Thank you!</p>
+
+<form id="form-summaries" method="post" action="{% url 'chairs:press_release' %}">
+{% csrf_token %}
+<div id = "summaries">
+		<table class = "table">
+		<thead>
+			<th class="name"> Delegate </th>
+			<th class="summary"> Release Body </th>
+		</thead>
+		<tbody>
+		<tr class="newrelease">
+		<td class="name" style="width:25%">
+		<select name="delegate">
+			<option>Select a Delegate...</option>
+			{% for slot in delegate_slots %}
+				<option value="{{ slot.id }}">{{ slot.assignment.country }}</option>
+			{% endfor %}
+		</select>
+		</td>
+		<td>
+		<textarea name="releasebody">
+		</textarea>
+		</td>	
+		</tr>
+		</tbody>
+	</table>
+</div>
+<div class="tablemenu footer">
+	<input class="saved button" type="submit" value="SUBMIT"/>
+</div>
+</form>
+{% endblock content %}

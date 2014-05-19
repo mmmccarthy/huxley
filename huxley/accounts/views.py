@@ -59,7 +59,7 @@ def logout_user(request):
 def register(request):
     '''Register a new user and school.'''
 
-    if not Conference.objects.get(session=62).open_reg:
+    if not Conference.objects.get(session=12).open_reg:
         return render_template(request, 'registration-closed.html')
 
     if request.method =='POST':
@@ -73,14 +73,14 @@ def register(request):
             if new_school.waitlist:
                 return render_template(request, 'registration-waitlist.html')
             if not settings.DEBUG:
-                new_user.email_user("Thanks for registering for BMUN 62!",
-                                    "We're looking forward to seeing %s at BMUN 62. "
+                new_user.email_user("Thanks for registering for NUMUN XII!",
+                                    "We're looking forward to seeing %s at NUMUN. "
                                     "You can find information on deadlines and fees at "
-                                    "http://bmun.org/bmun/timeline/. If you have any "
+                                    "http://numun.org/conference. If you have any "
                                     "more questions, please feel free to email me at "
-                                    "info@bmun.org. See you soon!\n\nBest,\n\nShrey Goel"
-                                    "\nUSG of External Relations, BMUN 62" % new_school.name,
-                                    "info@bmun.org")
+                                    "usgregistration@numun.org. See you soon!\n\nBest,\n\nPriyanka Melgiri"
+                                    "\nUSG of Registration, NUMUN XII" % new_school.name,
+                                    "usgregistration@numun.org")
             Conference.auto_country_assign(new_school)
             return render_template(request, 'registration-success.html')
 
@@ -90,7 +90,7 @@ def register(request):
         'state': '',
         'countries': Country.objects.filter(special=False).order_by('name'),
         'committees': Committee.objects.filter(special=True),
-        'waitlist': Conference.objects.get(session=62).waitlist_reg
+        'waitlist': Conference.objects.get(session=12).waitlist_reg
     }
 
     return render_template(request, 'registration.html', context)

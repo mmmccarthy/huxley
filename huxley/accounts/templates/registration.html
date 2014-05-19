@@ -1,17 +1,17 @@
-{% extends 'base-outer.html' %}
+{% extends 'base-outer-mod.html' %}
 
-{% block title %} Register for Berkeley Model United Nations {% endblock title %}
+{% block title %} Register for Northwestern University Model United Nations {% endblock title %}
 
 {% block content %}
-<h1>Register for Berkeley Model United Nations</h1>
+<h1>Register for Northwestern University Model United Nations</h1>
 
 {% if waitlist %}
 
-<p> Please fill out the following information to <b> add your school to the waitlist for BMUN 62 </b>. All fields are required except for Secondary Contact information. Please note that <b> being added to the waitlist does not guarantee your desired amount of spots for BMUN 62</b>. </p>
+<p> Please fill out the following information to <b> add your school to the waitlist for NUMUN XII </b>. All fields are required except for Secondary Contact information. Please note that <b> being added to the waitlist does not guarantee your desired amount of spots for NUMUN XII</b>. </p>
 
 {% else %}
 
-<p> Please fill out the following information to register your school for BMUN 62. All fields are required except for Secondary Contact information.</p>
+<p> Please fill out the following information to register your school for NUMUN XII. All fields are required except for Secondary Contact information.</p>
 
 {% endif %}
 
@@ -232,7 +232,7 @@
 <h3>Special Committee Preferences</h3>
 
 <p class="instructions">
-	Would your delegation be interested in being represented in the following small/specialized committees? Positions are limited and we may not be able to accomodate all preferences. 
+	Would your delegation be interested in being represented in the following small/specialized committees? Positions are limited and we may not be able to accommodate all preferences. 
 </p>
 {{ form.committee_prefs }}
 {% for error in form.errors.committee_prefs %}

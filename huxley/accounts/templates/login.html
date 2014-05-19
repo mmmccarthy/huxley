@@ -5,8 +5,8 @@
 {% block header %}
 	<div class="logo">
 		<hr />
-		<h1>Welcome to Huxley</h1>
-		<span class="help-text">for Berkeley Model United Nations</span>
+		<h1>DAIS for NUMUN</h1>
+		<span class="help-text">Delegate and Adviser Information System</span>
 	</div>
 {% endblock header %}
 
@@ -19,7 +19,7 @@
 		</div>
 		<div class="login-register">
 			<button class="button button-blue login-button rounded-small" type="submit"><span>Log In<span></button>
-			<a class="js-nav button button-green rounded-small" href="{% url 'accounts:register' %}">Register for BMUN</a>
+			<a class="js-nav button button-green rounded-small" href="{% url 'accounts:register' %}">Register for NUMUN</a>
 		</div>
 		<a class="js-nav" href="{% url 'accounts:reset_password' %}">Forgot your password?</a>
 		<div id="errorcontainer">

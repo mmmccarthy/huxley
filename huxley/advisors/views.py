@@ -42,7 +42,7 @@ def welcome(request):
 def preferences(request):
     """ Display and/or update the advisor's country and committee
         preferences. """
-    return render_to_response('coming-soon.html')
+    return render_to_response('preferences.html')
     school = request.user.school
 
     if request.method == 'POST':
