@@ -15,18 +15,34 @@ class HuxleyUser(AbstractUser):
 
     TYPE_ADVISOR = 1
     TYPE_CHAIR = 2
+    TYPE_CRISIS = 3
+    TYPE_FINANCE = 4
+    TYPE_SECRETARIAT = 5
     USER_TYPE_CHOICES = ((TYPE_ADVISOR, 'Advisor'),
-                         (TYPE_CHAIR, 'Chair'))
+                         (TYPE_CHAIR, 'Chair'),
+                         (TYPE_CRISIS, 'Crisis'),
+                         (TYPE_FINANCE, 'Finance'),
+                         (TYPE_SECRETARIAT, 'Secretariat'))
 
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=TYPE_ADVISOR)
     school = models.OneToOneField(School, related_name='advisor', null=True)  # Advisors only.
     committee = models.ForeignKey(Committee, related_name='chair', null=True) # Chairs only.
+    
 
     def is_advisor(self):
         return self.user_type == self.TYPE_ADVISOR
 
     def is_chair(self):
         return self.user_type == self.TYPE_CHAIR
+
+    def is_crisis(self):
+        return self.user_type == self.TYPE_CRISIS
+
+    def is_finance(self):
+        return self.user_type == self.TYPE_FINANCE
+
+    def is_secretariat(self):
+        return self.user_type == self.TYPE_SECRETARIAT
 
     def default_path(self):
         if self.is_advisor():
